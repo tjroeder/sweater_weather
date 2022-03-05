@@ -1,0 +1,3 @@
+class BackgroundsController < ApplicationController
+  
+end
