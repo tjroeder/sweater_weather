@@ -1,6 +1,7 @@
 # Start SimpleCov
 require 'simplecov'
 SimpleCov.start 'rails'
+SimpleCov.add_filter %w[spec config app/channels app/jobs app/mailers]
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
