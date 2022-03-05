@@ -21,3 +21,9 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Ignore Coverage Folder for SimpleCov
+/coverage/
+
+# Ignore application configuration
+/config/application.yml
