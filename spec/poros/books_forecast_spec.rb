@@ -168,6 +168,7 @@ RSpec.describe BooksForecast, :vcr, type: :poro do
     end
 
     it 'has attributes' do
+      expect(books_forecast).to have_attributes(id: nil)
       expect(books_forecast).to have_attributes(destination: 'denver,co')
 
       expected_forecast = {

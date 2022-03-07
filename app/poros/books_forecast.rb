@@ -1,10 +1,12 @@
 class BooksForecast
-  attr_reader :destination,
+  attr_reader :id,
+              :destination,
               :forecast,
               :total_books_found,
               :books
   
   def initialize(destination, books_data, forecast)
+    @id = nil
     @destination = destination
     @forecast = BooksForecast.format_forecast(forecast)
     @total_books_found = books_data[:numFound]
