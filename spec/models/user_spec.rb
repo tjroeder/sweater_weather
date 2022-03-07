@@ -8,6 +8,10 @@ RSpec.describe User, type: :model do
     it { should validate_uniqueness_of :email }
     it { should validate_presence_of :password }
     it { should validate_length_of(:password).is_at_least(8) }
+    it { should validate_confirmation_of :password }
+    it { should validate_confirmation_of :password }
+    it { should validate_presence_of :password_confirmation }
+    it { should validate_length_of(:password_confirmation).is_at_least(8)  }
   end
 
   describe 'factorybot' do
@@ -18,11 +22,17 @@ RSpec.describe User, type: :model do
     end
 
     it 'creates factory object with all attributes' do
-      user = create(:user, email: 'example@example.com', password: 'password!')
+      user = create(:user, email: 'example@example.com', password: 'password!', password_confirmation: 'password!')
 
       expect(user).to have_attributes(email: 'example@example.com')
       expect(user).to have_attributes(password: 'password!')
+      expect(user).to have_attributes(password_confirmation: 'password!')
       expect(user).to have_attribute(:api_key)
+    end
+
+    it 'does not create factory object if wrong password confirmation' do
+      expect{ create(:user, password: 'password!', password: '') }.
+        to raise_error(ActiveRecord::RecordInvalid)
     end
   end
 end
