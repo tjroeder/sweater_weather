@@ -160,7 +160,8 @@ RSpec.describe BooksForecast, :vcr, type: :poro do
                      }
                    }
   
-  let!(:books_forecast) { BooksForecast.new(destination, book_data, forecast)}
+  let!(:books_forecast) { BooksForecast.new('denver,co', book_data, forecast)}
+
   context 'object properties' do
     it 'exists' do
       expect(books_forecast).to be_a(BooksForecast)
@@ -170,28 +171,35 @@ RSpec.describe BooksForecast, :vcr, type: :poro do
       expect(books_forecast).to have_attributes(destination: 'denver,co')
 
       expected_forecast = {
-        summary:
-        temperature: 
+        summary: 'snow',
+        temperature: '24 F'
       }
-      expect(books_forecast).to have_attributes(forecast: )
+      expect(books_forecast).to have_attributes(forecast: expected_forecast)
 
       expect(books_forecast).to have_attributes(total_books_found: 41867)
-      expect(books).to have_key(:books)
-      expect(books.count).to eq(2)
-      expect(books.first).to be_a(Book)
-      # expect(book).to have_attributes(isbn: ['9780762507849', '0762507845'])
-      # expect(book).to have_attributes(title: 'Denver, Co')
-      # expect(book).to have_attributes(publisher: ['Universal Map Enterprises'])
+      expected_books = [
+                         {
+                           isbn: ["9780762507849", "0762507845"],
+                           title: "Denver, Co", 
+                           publisher: ["Universal Map Enterprises"]
+                         }, 
+                         {
+                           isbn:["0883183668", "9780883183663"], 
+                           title: "Photovoltaic safety, Denver, CO, 1988", 
+                           publisher: ["American Institute of Physics"]
+                         }
+                       ]
+
+      
+      expect(books_forecast).to have_attributes(books: expected_books )
+      expect(books_forecast.books.count).to eq(2)
     end
 
     it 'has correct attribute data types' do
-      # expect(book.isbn).to be_a(Array)
-      # expect(book.isbn.first).to be_a(String)
-      # expect(book.isbn.last).to be_a(String)
-      # expect(book.title).to be_a(String)
-      # expect(book.publisher).to be_a(Array)
-      # expect(book.publisher.first).to be_a(String)
-      # expect(book.publisher.last).to be_a(String)
+      expect(books_forecast.destination).to be_a(String)
+      expect(books_forecast.forecast).to be_a(Hash)
+      expect(books_forecast.forecast[:summary]).to be_a(String)
+      expect(books_forecast.forecast[:temperature]).to be_a(String)
     end
   end
 end
