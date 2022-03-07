@@ -184,7 +184,7 @@ RSpec.describe BooksForecast, :vcr, type: :poro do
                            publisher: ["Universal Map Enterprises"]
                          }, 
                          {
-                           isbn:["0883183668", "9780883183663"], 
+                           isbn: ["0883183668", "9780883183663"], 
                            title: "Photovoltaic safety, Denver, CO, 1988", 
                            publisher: ["American Institute of Physics"]
                          }
@@ -200,6 +200,15 @@ RSpec.describe BooksForecast, :vcr, type: :poro do
       expect(books_forecast.forecast).to be_a(Hash)
       expect(books_forecast.forecast[:summary]).to be_a(String)
       expect(books_forecast.forecast[:temperature]).to be_a(String)
+      expect(books_forecast.total_books_found).to be_a(Integer)
+
+      books_forecast.books.each do |book|
+        expect(book[:isbn]).to be_a(Array)
+        expect(book[:isbn].first).to be_a(String)
+        expect(book[:title]).to be_a(String)
+        expect(book[:publisher]).to be_a(Array)
+        expect(book[:publisher].first).to be_a(String)
+      end
     end
   end
 end

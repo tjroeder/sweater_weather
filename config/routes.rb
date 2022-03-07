@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :roadtrip, only: %i[create]
       get '/backgrounds', to: 'backgrounds#index'
       get '/forecast', to: 'forecast#index'
-      get '/book-search', to: 'books#index'
+      get '/book-search', to: 'books#book_search'
     end
   end
 end
