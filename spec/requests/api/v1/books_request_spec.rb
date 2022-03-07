@@ -14,10 +14,16 @@ RSpec.describe 'Books Request API', :vcr, type: :request do
       expect(response.status).to eq(400)
     end
 
-    it 'returns bad request if given invalid quantity' do
+    it 'returns error message if given invalid quantity' do
       get api_v1_book_search_path(params: { location: 'denver,co', quantity: -1 })
+      expected_error =     {
+                             errors: [
+                               status: 400,
+                               detail: 'Incorrect quantity given, must be greater than 0' 
+                             ]
+                           }
 
-      expect(response.status).to eq(400)
+      expect(json_parse(response.body)).to eq(expected_error)
     end
     
     it 'returns parsable json data response for book search' do
