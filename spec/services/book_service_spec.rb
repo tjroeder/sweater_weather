@@ -4,7 +4,7 @@ RSpec.describe BookService, type: :service do
   context 'class methods', :vcr do
     describe '::get_destination_books' do
       it 'returns a response hash' do
-        books = BookService.get_destination_books('denver,co')
+        books = BookService.get_destination_books('denver,co', 2)
 
         expect(books).to be_a(Hash)
       end

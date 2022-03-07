@@ -54,7 +54,7 @@ RSpec.describe 'Books Request API', :vcr, type: :request do
       expect(attr[:forecast]).to be_a(Hash)
       expect(attr[:forecast].count).to eq(2)
       expect(attr[:forecast][:summary]).to eq('snow')
-      expect(attr[:forecast][:temperature]).to eq('26 F')
+      expect(attr[:forecast][:temperature]).to eq('27 F')
 
       expect(attr[:total_books_found]).to be_a(Integer)
       expect(attr[:total_books_found]).to eq(41867)
