@@ -60,6 +60,7 @@ RSpec.describe 'Books Request API', :vcr, type: :request do
       expect(attr[:total_books_found]).to eq(41867)
 
       expect(attr[:books]).to be_a(Array)
+      expect(attr[:books].count).to eq(2)
       expect(attr[:books].first).to be_a(Hash)
       expect(attr[:books].first).to have_key(:isbn)
       expect(attr[:books].first).to have_key(:title)

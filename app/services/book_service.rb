@@ -5,6 +5,6 @@ class BookService < ApplicationService
       req.params['q'] = destination
     end
 
-    json_parse(response.body) # if response.status == 200
+    json_parse(response.body)
   end
 end
