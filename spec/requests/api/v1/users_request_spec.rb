@@ -9,7 +9,7 @@ RSpec.describe 'Users Request API', type: :request do
                  }
 
   context '#create action' do
-    describe 'valid request' do
+    describe 'valid registration request' do
       it 'returns successful status' do
         user_params = { email: 'user@email.com', password: '12345678', password_confirmation: '12345678' }
         post api_v1_users_path, headers: headers, params: user_params.to_json
@@ -17,7 +17,7 @@ RSpec.describe 'Users Request API', type: :request do
         expect(response).to be_successful
       end
 
-      it 'returns parsable json data response for forecast' do
+      it 'returns parsable json data response for user login' do
         user_params = { email: 'user@email.com', password: '12345678', password_confirmation: '12345678' }
         post api_v1_users_path, headers: headers, params: user_params.to_json
         
@@ -45,7 +45,7 @@ RSpec.describe 'Users Request API', type: :request do
       end
     end
 
-    describe 'invalid request' do
+    describe 'invalid registration request' do
       it 'returns unsuccessful status' do
         user_params = { email: 'user@email.com', password: '12345678', password_confirmation: '123' }
         post api_v1_users_path, headers: headers, params: user_params.to_json
@@ -63,7 +63,7 @@ RSpec.describe 'Users Request API', type: :request do
               status: 400,
               source: { pointer: '/api/v1/users' },
               id: 'email', 
-              title: "has already been taken" 
+              title: "Email has already been taken" 
             }
           ]
         }
@@ -80,13 +80,13 @@ RSpec.describe 'Users Request API', type: :request do
               status: 400,
               source: { pointer: '/api/v1/users' },
               id: 'email', 
-              title: "is invalid" 
+              title: "Email is invalid" 
             },
             { 
               status: 400,
               source: { pointer: '/api/v1/users' },
               id: 'email', 
-              title: "can't be blank" 
+              title: "Email can't be blank" 
             }
           ]
         }
@@ -103,7 +103,7 @@ RSpec.describe 'Users Request API', type: :request do
               status: 400,
               source: { pointer: '/api/v1/users' },
               id: 'password_confirmation', 
-              title: "doesn't match Password" 
+              title: "Password confirmation doesn't match Password" 
             }
           ]
         }
@@ -120,7 +120,7 @@ RSpec.describe 'Users Request API', type: :request do
               status: 400,
               source: { pointer: '/api/v1/users' },
               id: 'password', 
-              title: "is too short (minimum is 8 characters)" 
+              title: "Password is too short (minimum is 8 characters)" 
             }
           ]
         }
@@ -137,19 +137,19 @@ RSpec.describe 'Users Request API', type: :request do
               status: 400,
               source: { pointer: '/api/v1/users' },
               id: 'password', 
-              title: "can't be blank" 
+              title: "Password can't be blank" 
             },
             { 
               status: 400,
               source: { pointer: '/api/v1/users' },
               id: 'password', 
-              title: "is too short (minimum is 8 characters)" 
+              title: "Password is too short (minimum is 8 characters)" 
             },
             { 
               status: 400,
               source: { pointer: '/api/v1/users' },
               id: 'password_digest', 
-              title: "can't be blank" 
+              title: "Password digest can't be blank" 
             }
           ]
         }
@@ -166,7 +166,7 @@ RSpec.describe 'Users Request API', type: :request do
               status: 400,
               source: { pointer: '/api/v1/users' },
               id: 'password_confirmation', 
-              title: "can't be blank"
+              title: "Password confirmation can't be blank"
             }
           ]
         }
