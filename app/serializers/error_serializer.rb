@@ -9,7 +9,7 @@ class ErrorSerializer
           status: status,
           source: { pointer: source },
           id: type, 
-          title: msg 
+          title: "#{type.to_s.humanize} #{msg.to_s}"
         }
       end
     end.flatten
