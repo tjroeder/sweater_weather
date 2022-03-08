@@ -5,7 +5,7 @@ class Api::V1::SessionsController < ApplicationController
   def create
     user = User.find_by(email: @login[:email])
 
-    if user && user.authenticate(@login[:password])
+    if user&.authenticate(@login[:password])
       json_response(UserSerializer.new(user), :ok)
     else
       json_response(invalid_error_msg, :unauthorized)
