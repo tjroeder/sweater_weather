@@ -1,0 +1,76 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/repos/tjroeder/sweater_weather
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.2.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 09 Mar 2022 08:33:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Cache-Control:
+      - public, max-age=60, s-maxage=60
+      Vary:
+      - Accept, Accept-Encoding, Accept, X-Requested-With
+      Etag:
+      - W/"df1a6f75b8139c839f245855ff1003aa6745e81d163fc0f548cd4f9e917b78fe"
+      Last-Modified:
+      - Fri, 04 Mar 2022 20:17:06 GMT
+      X-Github-Media-Type:
+      - github.v3; format=json
+      Access-Control-Expose-Headers:
+      - ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining,
+        X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes,
+        X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO,
+        X-GitHub-Request-Id, Deprecation, Sunset
+      Access-Control-Allow-Origin:
+      - "*"
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubdomains; preload
+      X-Frame-Options:
+      - deny
+      X-Content-Type-Options:
+      - nosniff
+      X-Xss-Protection:
+      - '0'
+      Referrer-Policy:
+      - origin-when-cross-origin, strict-origin-when-cross-origin
+      Content-Security-Policy:
+      - default-src 'none'
+      X-Ratelimit-Limit:
+      - '60'
+      X-Ratelimit-Remaining:
+      - '59'
+      X-Ratelimit-Reset:
+      - '1646818422'
+      X-Ratelimit-Resource:
+      - core
+      X-Ratelimit-Used:
+      - '1'
+      Accept-Ranges:
+      - bytes
+      Content-Length:
+      - '1185'
+      X-Github-Request-Id:
+      - 55CE:719E:1241C67:2C6F0D2:62286666
+    body:
+      encoding: ASCII-8BIT
+      string: '{"id":466258691,"node_id":"R_kgDOG8qLAw","name":"sweater_weather","full_name":"tjroeder/sweater_weather","private":false,"owner":{"login":"tjroeder","id":78194232,"node_id":"MDQ6VXNlcjc4MTk0MjMy","avatar_url":"https://avatars.githubusercontent.com/u/78194232?v=4","gravatar_id":"","url":"https://api.github.com/users/tjroeder","html_url":"https://github.com/tjroeder","followers_url":"https://api.github.com/users/tjroeder/followers","following_url":"https://api.github.com/users/tjroeder/following{/other_user}","gists_url":"https://api.github.com/users/tjroeder/gists{/gist_id}","starred_url":"https://api.github.com/users/tjroeder/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/tjroeder/subscriptions","organizations_url":"https://api.github.com/users/tjroeder/orgs","repos_url":"https://api.github.com/users/tjroeder/repos","events_url":"https://api.github.com/users/tjroeder/events{/privacy}","received_events_url":"https://api.github.com/users/tjroeder/received_events","type":"User","site_admin":false},"html_url":"https://github.com/tjroeder/sweater_weather","description":null,"fork":false,"url":"https://api.github.com/repos/tjroeder/sweater_weather","forks_url":"https://api.github.com/repos/tjroeder/sweater_weather/forks","keys_url":"https://api.github.com/repos/tjroeder/sweater_weather/keys{/key_id}","collaborators_url":"https://api.github.com/repos/tjroeder/sweater_weather/collaborators{/collaborator}","teams_url":"https://api.github.com/repos/tjroeder/sweater_weather/teams","hooks_url":"https://api.github.com/repos/tjroeder/sweater_weather/hooks","issue_events_url":"https://api.github.com/repos/tjroeder/sweater_weather/issues/events{/number}","events_url":"https://api.github.com/repos/tjroeder/sweater_weather/events","assignees_url":"https://api.github.com/repos/tjroeder/sweater_weather/assignees{/user}","branches_url":"https://api.github.com/repos/tjroeder/sweater_weather/branches{/branch}","tags_url":"https://api.github.com/repos/tjroeder/sweater_weather/tags","blobs_url":"https://api.github.com/repos/tjroeder/sweater_weather/git/blobs{/sha}","git_tags_url":"https://api.github.com/repos/tjroeder/sweater_weather/git/tags{/sha}","git_refs_url":"https://api.github.com/repos/tjroeder/sweater_weather/git/refs{/sha}","trees_url":"https://api.github.com/repos/tjroeder/sweater_weather/git/trees{/sha}","statuses_url":"https://api.github.com/repos/tjroeder/sweater_weather/statuses/{sha}","languages_url":"https://api.github.com/repos/tjroeder/sweater_weather/languages","stargazers_url":"https://api.github.com/repos/tjroeder/sweater_weather/stargazers","contributors_url":"https://api.github.com/repos/tjroeder/sweater_weather/contributors","subscribers_url":"https://api.github.com/repos/tjroeder/sweater_weather/subscribers","subscription_url":"https://api.github.com/repos/tjroeder/sweater_weather/subscription","commits_url":"https://api.github.com/repos/tjroeder/sweater_weather/commits{/sha}","git_commits_url":"https://api.github.com/repos/tjroeder/sweater_weather/git/commits{/sha}","comments_url":"https://api.github.com/repos/tjroeder/sweater_weather/comments{/number}","issue_comment_url":"https://api.github.com/repos/tjroeder/sweater_weather/issues/comments{/number}","contents_url":"https://api.github.com/repos/tjroeder/sweater_weather/contents/{+path}","compare_url":"https://api.github.com/repos/tjroeder/sweater_weather/compare/{base}...{head}","merges_url":"https://api.github.com/repos/tjroeder/sweater_weather/merges","archive_url":"https://api.github.com/repos/tjroeder/sweater_weather/{archive_format}{/ref}","downloads_url":"https://api.github.com/repos/tjroeder/sweater_weather/downloads","issues_url":"https://api.github.com/repos/tjroeder/sweater_weather/issues{/number}","pulls_url":"https://api.github.com/repos/tjroeder/sweater_weather/pulls{/number}","milestones_url":"https://api.github.com/repos/tjroeder/sweater_weather/milestones{/number}","notifications_url":"https://api.github.com/repos/tjroeder/sweater_weather/notifications{?since,all,participating}","labels_url":"https://api.github.com/repos/tjroeder/sweater_weather/labels{/name}","releases_url":"https://api.github.com/repos/tjroeder/sweater_weather/releases{/id}","deployments_url":"https://api.github.com/repos/tjroeder/sweater_weather/deployments","created_at":"2022-03-04T20:16:34Z","updated_at":"2022-03-04T20:17:06Z","pushed_at":"2022-03-09T06:32:37Z","git_url":"git://github.com/tjroeder/sweater_weather.git","ssh_url":"git@github.com:tjroeder/sweater_weather.git","clone_url":"https://github.com/tjroeder/sweater_weather.git","svn_url":"https://github.com/tjroeder/sweater_weather","homepage":null,"size":223,"stargazers_count":0,"watchers_count":0,"language":"Ruby","has_issues":true,"has_projects":true,"has_downloads":true,"has_wiki":true,"has_pages":false,"forks_count":0,"mirror_url":null,"archived":false,"disabled":false,"open_issues_count":0,"license":null,"allow_forking":true,"is_template":false,"topics":[],"visibility":"public","forks":0,"open_issues":0,"watchers":0,"default_branch":"main","temp_clone_token":null,"network_count":0,"subscribers_count":1}'
+  recorded_at: Wed, 09 Mar 2022 08:33:42 GMT
+recorded_with: VCR 6.0.0

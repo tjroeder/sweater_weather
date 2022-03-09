@@ -429,5 +429,17 @@ RSpec.describe Forecast, :vcr, type: :poro do
         expect(hour[:icon]).to be_a(String)
       end
     end
+
+    context 'invalid service data' do
+      it 'returns error messages' do
+        bad_forecast = Forecast.new({})
+        expected_error = { errors: [ { status: 400, title: 'Bad Request' }] }
+
+        expect(bad_forecast).to be_a(Forecast)
+        expect(bad_forecast.current_weather).to eq(expected_error)
+        expect(bad_forecast.daily_weather).to eq(expected_error)
+        expect(bad_forecast.hourly_weather).to eq(expected_error)
+      end
+    end
   end
 end
