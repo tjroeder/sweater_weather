@@ -23,7 +23,7 @@ class Background
     @owner_id = data[:owner]
     @secret_id = data[:secret]
     @title = data[:title]
-    @location = query
+    @location = query.delete_suffix(' skyline')
     @license_num = data[:license]
     @owner_name = data[:ownername]
     @url_l = data[:url_l]
@@ -38,25 +38,33 @@ class Background
   end
 
   def self.image_links_hash(data)
-    {
-      large_url: data[:url_l],
-      large_height: data[:height_l],
-      large_width: data[:width_l],
-      thumbnail_url: data[:url_t],
-      thumbnail_height: data[:height_t],
-      thumbnail_width: data[:width_t]
-    }
+    unless data[:title] == 'NO IMAGE FOUND'
+      {
+        large_url: data[:url_l],
+        large_height: data[:height_l],
+        large_width: data[:width_l],
+        thumbnail_url: data[:url_t],
+        thumbnail_height: data[:height_t],
+        thumbnail_width: data[:width_t]
+      }
+    else
+      nil
+    end
   end
   
   def self.credit_hash(data)
-    {
-      owner_name: data[:ownername],
-      license: Background.license_info[data[:license].to_sym][0],
-      license_url: Background.license_info[data[:license].to_sym][1],
-      source: 'Flickr',
-      notice: 'This product uses the Flickr API but is not endorsed or certified by SmugMug, Inc.',
-      terms_url: 'https://www.flickr.com/help/terms/api'
-    }
+    unless data[:title] == 'NO IMAGE FOUND'
+      {
+        owner_name: data[:ownername],
+        license: Background.license_info[data[:license].to_sym][0],
+        license_url: Background.license_info[data[:license].to_sym][1],
+        source: 'Flickr',
+        notice: 'This product uses the Flickr API but is not endorsed or certified by SmugMug, Inc.',
+        terms_url: 'https://www.flickr.com/help/terms/api'
+      }
+    else
+      nil
+    end
   end
 
   def self.license_info
@@ -76,14 +84,21 @@ class Background
   end
 
   def self.image_hash(data, query)
-    {
-      image_id: data[:id],
-      owner_id: data[:owner],
-      secret_id: data[:secret],
-      title: data[:title],
-      location: query,
-      image_links: Background.image_links_hash(data),
-      credit: Background.credit_hash(data)
-    }
+    unless data[:title] == 'NO IMAGE FOUND'
+      {
+        image_id: data[:id],
+        owner_id: data[:owner],
+        secret_id: data[:secret],
+        title: data[:title],
+        location: query,
+        image_links: Background.image_links_hash(data),
+        credit: Background.credit_hash(data)
+      }
+    else
+      {
+        title: 'NO IMAGE FOUND',
+        location: query.delete_suffix(' skyline')
+      }
+    end
   end
 end

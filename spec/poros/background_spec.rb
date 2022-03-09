@@ -113,4 +113,64 @@ RSpec.describe Background, type: :poro do
       expect(image.image).to be_a(Hash)
     end
   end
+
+  context 'image service returns invalid search' do
+    it 'exists' do
+      broken_data =     {
+                          id: nil,
+                          owner: nil,
+                          secret: nil,
+                          title: 'NO IMAGE FOUND',
+                          license: nil,
+                          ownername: nil,
+                          url_l: nil,
+                          height_l: nil,
+                          width_l: nil,
+                          url_t: nil,
+                          height_t: nil,
+                          width_t: nil
+                        }
+                        
+      broken_image = Background.new(broken_data, 'broken location')
+      
+      expect(broken_image).to be_a(Background)
+    end
+
+    it 'returns nil data and no image found title' do
+      broken_data =     {
+                          id: nil,
+                          owner: nil,
+                          secret: nil,
+                          title: 'NO IMAGE FOUND',
+                          license: nil,
+                          ownername: nil,
+                          url_l: nil,
+                          height_l: nil,
+                          width_l: nil,
+                          url_t: nil,
+                          height_t: nil,
+                          width_t: nil
+                        }
+
+      broken_image = Background.new(broken_data, 'broken location')
+
+      expect(broken_image).to have_attributes(id: nil)
+      expect(broken_image).to have_attributes(image_id: nil)
+      expect(broken_image).to have_attributes(owner_id: nil)
+      expect(broken_image).to have_attributes(secret_id: nil)
+      expect(broken_image).to have_attributes(title: 'NO IMAGE FOUND')
+      expect(broken_image).to have_attributes(location: 'broken location')
+      expect(broken_image).to have_attributes(license_num: nil)
+      expect(broken_image).to have_attributes(owner_name: nil)
+      expect(broken_image).to have_attributes(url_l: nil)
+      expect(broken_image).to have_attributes(height_l: nil)
+      expect(broken_image).to have_attributes(width_l: nil)
+      expect(broken_image).to have_attributes(url_t: nil)
+      expect(broken_image).to have_attributes(height_t: nil)
+      expect(broken_image).to have_attributes(width_t: nil)
+      expect(broken_image).to have_attributes(image_links: nil)
+      expect(broken_image).to have_attributes(credit: nil)
+      expect(broken_image).to have_attributes(image: { title: 'NO IMAGE FOUND', location: 'broken location' })
+    end
+  end
 end
