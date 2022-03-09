@@ -60,5 +60,27 @@ RSpec.describe 'Forecast Request API', :vcr, type: :request do
         expect(hour).to have_key(:icon)
       end
     end
+
+    it 'returns error messages in the hash with bad request status' do
+      get api_v1_forecast_path(params: { location: 'zzzzzzzzzz' })
+      expected_error = { errors: [ { status: 400, title: 'Bad Request' }] }
+      hash = json_parse(response.body)
+      attr = hash[:data][:attributes]
+
+      expect(response.status).to eq(400)
+
+      expect(hash).to have_key(:data)
+      expect(hash[:data]).to have_key(:id)
+      expect(hash[:data][:id]).to eq(nil)
+      expect(hash[:data][:type]).to eq('forecast')
+
+      expect(attr).to have_key(:current_weather)
+      expect(attr).to have_key(:daily_weather)
+      expect(attr).to have_key(:hourly_weather)
+      
+      expect(attr[:current_weather]).to eq(expected_error)
+      expect(attr[:daily_weather]).to eq(expected_error)
+      expect(attr[:hourly_weather]).to eq(expected_error)
+    end
   end
 end
