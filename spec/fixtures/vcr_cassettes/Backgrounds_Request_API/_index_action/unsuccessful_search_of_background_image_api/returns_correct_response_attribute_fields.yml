@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://www.flickr.com/services/rest?accuracy=11&api_key=<flickr_key>&content_type=1&extras=license,owner_name,url_l,url_t&format=json&geo_context=2&media=photos&method=flickr.photos.search&nojsoncallback=1&privacy_filter=1&safe_search=1&text=dfasdfasdfasfsdfas%20skyline
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v2.2.0
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '78'
+      Connection:
+      - keep-alive
+      Date:
+      - Wed, 09 Mar 2022 06:26:33 GMT
+      Server:
+      - Apache/2.4.52 (Ubuntu)
+      Set-Cookie:
+      - ccc=%7B%22needsConsent%22%3Afalse%2C%22managed%22%3A0%2C%22changed%22%3A0%2C%22info%22%3A%7B%22cookieBlock%22%3A%7B%22level%22%3A0%2C%22blockRan%22%3A0%7D%7D%7D;
+        expires=Fri, 08-Apr-2022 06:26:33 GMT; Max-Age=2592000; path=/; domain=.flickr.com
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Cache:
+      - Miss from cloudfront
+      Via:
+      - 1.1 25161ee8e0bc1cc9e1cea0d22207b908.cloudfront.net (CloudFront)
+      X-Amz-Cf-Pop:
+      - DFW56-P5
+      X-Amz-Cf-Id:
+      - tmZ1U2tfaGQFGW2J-7FWo_ARs4yr86ww9Huyl9mqktyDUzKXYgnzdg==
+    body:
+      encoding: UTF-8
+      string: '{"photos":{"page":1,"pages":0,"perpage":250,"total":0,"photo":[]},"stat":"ok"}'
+  recorded_at: Wed, 09 Mar 2022 06:26:33 GMT
+recorded_with: VCR 6.0.0
