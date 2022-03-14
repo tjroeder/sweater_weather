@@ -45,7 +45,6 @@ group :development, :test do
   gem 'faker'
   gem 'figaro'
   gem 'pry'
-  gem 'rspec-rails'
   gem 'rubocop'
   gem 'shoulda-matchers'
 end
@@ -58,8 +57,9 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov'
   gem 'rspec_junit_formatter'
+  gem 'rspec-rails'
+  gem 'simplecov', require: false
   gem 'vcr'
   gem 'webmock'
 end 
