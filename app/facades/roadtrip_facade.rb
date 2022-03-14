@@ -7,6 +7,5 @@ class RoadtripFacade
     forecast_data = ForecastService.get_forecast(lat, lng, 'imperial')
 
     Roadtrip.new(from, to, route_data, forecast_data)
-    end
   end
 end
