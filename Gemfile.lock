@@ -66,6 +66,7 @@ GEM
       rexml
     crass (1.0.6)
     diff-lcs (1.5.0)
+    docile (1.4.0)
     email_validator (2.2.3)
       activemodel
     erubi (1.10.0)
@@ -189,6 +190,12 @@ GEM
     ruby_dep (1.5.0)
     shoulda-matchers (5.1.0)
       activesupport (>= 5.2.0)
+    simplecov (0.21.2)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -240,6 +247,7 @@ DEPENDENCIES
   rspec_junit_formatter
   rubocop
   shoulda-matchers
+  simplecov
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
