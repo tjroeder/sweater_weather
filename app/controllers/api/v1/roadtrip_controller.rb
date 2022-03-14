@@ -6,7 +6,7 @@ class Api::V1::RoadtripController < ApplicationController
   def create
     @roadtrip = RoadtripFacade.get_roadtrip(@rt_params[:origin], @rt_params[:destination], 'm')
     if @roadtrip.travel_time == 'impossible'
-      json_response(RoadtripSerializer.new(@roadtrip), :bad_request)
+      json_response(RoadtripSerializer.new(@roadtrip), :ok)
     else
       json_response(RoadtripSerializer.new(@roadtrip), :ok)
     end

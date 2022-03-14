@@ -66,7 +66,7 @@ RSpec.describe 'Roadtrip Request API', :vcr, type: :request do
         rt_params = { origin: 'denver,co', destination: 'london,uk', api_key: user.api_key }
         post api_v1_road_trip_path, headers: headers, params: rt_params.to_json
 
-        expect(response.status).to eq(400)
+        expect(response.status).to eq(200)
       end
       
       it 'returns bad request status when missing api key param' do

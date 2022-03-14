@@ -6,10 +6,7 @@ class RoadtripFacade
     lng = location[:results][0][:locations][0][:latLng][:lng]
     forecast_data = ForecastService.get_forecast(lat, lng, 'imperial')
 
-    if route_data[:time]
-      Roadtrip.new(from, to, route_data, forecast_data)
-    else
-      Roadtrip.new(from, to, route_data, forecast_data)
+    Roadtrip.new(from, to, route_data, forecast_data)
     end
   end
 end
