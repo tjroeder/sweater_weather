@@ -13,9 +13,9 @@ RSpec.describe Forecast, :vcr, type: :poro do
       expect(forecast).to have_attributes(id: nil)
       expect(forecast).to have_attributes(timezone_offset: -25200)
       expected_current = { 
-                           datetime: "2022-03-06 07:27:30 UTC",
-                           sunrise: "2022-03-06 13:25:35 UTC", 
-                           sunset: "2022-03-07 00:57:04 UTC", 
+                           datetime: "2022-03-06 00:27:30 -0700",
+                           sunrise: "2022-03-06 06:25:35 -0700", 
+                           sunset: "2022-03-06 17:57:04 -0700", 
                            temperature: 22.93, 
                            feels_like: 19.06, 
                            humidity: 84, 
@@ -40,77 +40,77 @@ RSpec.describe Forecast, :vcr, type: :poro do
       expect(forecast.current_weather[:icon]).to be_a(String)
 
       expected_daily = [
-                         { 
+                         {
+                           conditions: "snow", 
                            date: "2022-03-06", 
-                           sunrise: "2022-03-06 13:25:35 UTC", 
-                           sunset: "2022-03-07 00:57:04 UTC", 
+                           icon: "13d", 
                            max_temp: 28.27, 
                            min_temp: 20.86, 
-                           conditions: "snow", 
-                           icon: "13d"
-                         },
+                           sunrise: "2022-03-06 06:25:35 -0700", 
+                           sunset: "2022-03-06 17:57:04 -0700"
+                         }, 
                          {
+                           conditions: "clear sky", 
                            date: "2022-03-07", 
-                           sunrise: "2022-03-07 13:24:02 UTC", 
-                           sunset: "2022-03-08 00:58:07 UTC", 
+                           icon: "01d", 
                            max_temp: 31.82, 
                            min_temp: 18.9, 
-                           conditions: "clear sky", 
-                           icon: "01d"
-                         },
+                           sunrise: "2022-03-07 06:24:02 -0700", 
+                           sunset: "2022-03-07 17:58:07 -0700"
+                         }, 
                          {
+                           conditions: "few clouds", 
                            date: "2022-03-08", 
-                           sunrise: "2022-03-08 13:22:28 UTC", 
-                           sunset: "2022-03-09 00:59:10 UTC", 
+                           icon: "02d", 
                            max_temp: 39.43, 
                            min_temp: 24.44, 
-                           conditions: "few clouds", 
-                           icon: "02d"
-                         },
+                           sunrise: "2022-03-08 06:22:28 -0700", 
+                           sunset: "2022-03-08 17:59:10 -0700"
+                         }, 
                          {
+                           conditions: "snow", 
                            date: "2022-03-09", 
-                           sunrise: "2022-03-09 13:20:54 UTC", 
-                           sunset: "2022-03-10 01:00:13 UTC", 
+                           icon: "13d", 
                            max_temp: 34.23, 
                            min_temp: 18.23, 
-                           conditions: "snow", 
-                           icon: "13d"
-                         },
+                           sunrise: "2022-03-09 06:20:54 -0700", 
+                           sunset: "2022-03-09 18:00:13 -0700"
+                         }, 
                          {
+                           conditions: "light snow", 
                            date: "2022-03-10", 
-                           sunrise: "2022-03-10 13:19:20 UTC", 
-                           sunset: "2022-03-11 01:01:16 UTC", 
+                           icon: "13d", 
                            max_temp: 26.29, 
                            min_temp: 13.82, 
-                           conditions: "light snow", 
-                           icon: "13d"
-                         },
+                           sunrise: "2022-03-10 06:19:20 -0700", 
+                           sunset: "2022-03-10 18:01:16 -0700"
+                         }, 
                          {
+                           conditions: "broken clouds", 
                            date: "2022-03-11", 
-                           sunrise: "2022-03-11 13:17:45 UTC", 
-                           sunset: "2022-03-12 01:02:18 UTC", 
+                           icon: "04d", 
                            max_temp: 41.54, 
                            min_temp: 20.19, 
-                           conditions: "broken clouds", 
-                           icon: "04d"
-                         },
+                           sunrise: "2022-03-11 06:17:45 -0700", 
+                           sunset: "2022-03-11 18:02:18 -0700"
+                         }, 
                          {
+                           conditions: "few clouds", 
                            date: "2022-03-12", 
-                           sunrise: "2022-03-12 13:16:09 UTC", 
-                           sunset: "2022-03-13 01:03:20 UTC", 
+                           icon: "02d", 
                            max_temp: 51.6, 
                            min_temp: 29.52, 
-                           conditions: "few clouds", 
-                           icon: "02d"
-                         },
+                           sunrise: "2022-03-12 06:16:09 -0700", 
+                           sunset: "2022-03-12 18:03:20 -0700"
+                         }, 
                          {
+                           conditions: "broken clouds", 
                            date: "2022-03-13", 
-                           sunrise: "2022-03-13 13:14:33 UTC", 
-                           sunset: "2022-03-14 01:04:22 UTC", 
+                           icon: "04d", 
                            max_temp: 59.07, 
                            min_temp: 36.61, 
-                           conditions: "broken clouds", 
-                           icon: "04d"
+                           sunrise: "2022-03-13 06:14:33 -0700", 
+                           sunset: "2022-03-13 18:04:22 -0700"
                          }
                        ]
       expect(forecast).to have_attributes(daily_weather: expected_daily)
