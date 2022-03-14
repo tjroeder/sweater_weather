@@ -7,7 +7,6 @@ orbs:
   node: circleci/node@2
 
 jobs:
-  working_directory: ~/sweater_weather
   build: # our first job, named "build"
     docker:
       - image: cimg/ruby:2.7.2-node # use a tailored CircleCI docker image.
@@ -17,12 +16,6 @@ jobs:
     steps:
       - checkout # pull down our git code.
       - ruby/install-deps # use the ruby orb to install dependencies
-      # use the node orb to install our packages
-      # specifying that we use `yarn` and to cache dependencies with `yarn.lock`
-      # learn more: https://circleci.com/docs/2.0/caching/
-      - node/install-packages:
-          pkg-manager: yarn
-          cache-key: "yarn.lock"
 
   test:  # our next job, called "test"
     # we run "parallel job containers" to enable speeding up our tests;
@@ -54,9 +47,7 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
-      - node/install-packages:
-          pkg-manager: yarn
-          cache-key: "yarn.lock"
+
       # Here we make sure that the secondary container boots
       # up before we run operations on the database.
       - run:
