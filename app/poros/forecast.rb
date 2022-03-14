@@ -16,9 +16,9 @@ class Forecast
   def self.current_weather(data)
     if data[:current].present?
       {
-        datetime: Time.at(data[:current][:dt]).to_s,
-        sunrise: Time.at(data[:current][:sunrise]).to_s,
-        sunset: Time.at(data[:current][:sunset]).to_s,
+        datetime: Time.at(data[:current][:dt]).utc.to_s,
+        sunrise: Time.at(data[:current][:sunrise]).utc.to_s,
+        sunset: Time.at(data[:current][:sunset]).utc.to_s,
         temperature: data[:current][:temp],
         feels_like: data[:current][:feels_like],
         humidity: data[:current][:humidity],
@@ -37,8 +37,8 @@ class Forecast
       data[:daily].map.with_index do |daily, index|
         {
           date: Time.at(daily[:dt]).strftime('%F').to_s,
-          sunrise: Time.at(daily[:sunrise]).to_s,
-          sunset: Time.at(daily[:sunset]).to_s,
+          sunrise: Time.at(daily[:sunrise]).utc.to_s,
+          sunset: Time.at(daily[:sunset]).utc.to_s,
           max_temp: daily[:temp][:max],
           min_temp: daily[:temp][:min],
           conditions: daily[:weather][0][:description],
