@@ -37,6 +37,10 @@ gem 'faraday'
 # Email Validation
 gem 'email_validator'
 
+# Swagger API Documentation
+gem 'rswag-api'
+gem 'rswag-ui'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -45,6 +49,7 @@ group :development, :test do
   gem 'faker'
   gem 'figaro'
   gem 'pry'
+  gem 'rswag-specs'
   gem 'rubocop'
   gem 'shoulda-matchers'
 end

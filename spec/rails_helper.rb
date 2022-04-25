@@ -39,6 +39,9 @@ RSpec.configure do |config|
   # Request Spec Helper
   config.include RequestSpecHelper, type: :request
 
+  # Swagger dry run configuration
+  config.swagger_dry_run = false
+
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
