@@ -1,0 +1,402 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API V1",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/backgrounds": {
+      "get": {
+        "summary": "Returns a single background photo",
+        "tags": [
+          "Background"
+        ],
+        "description": "Retreives a background photo from Flickr",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "required": true,
+            "description": "city, state",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "id": null,
+                    "type": "image",
+                    "attributes": {
+                      "image": {
+                        "image_id": "43691964192",
+                        "owner_id": "8121206@N07",
+                        "secret_id": "4ff507454d",
+                        "title": "Denver Skyline",
+                        "location": "denver,co skyline",
+                        "image_links": {
+                          "large_url": "https://live.staticflickr.com/930/43691964192_4ff507454d_b.jpg",
+                          "large_height": 683,
+                          "large_width": 1024,
+                          "thumbnail_url": "https://live.staticflickr.com/930/43691964192_4ff507454d_t.jpg",
+                          "thumbnail_height": 67,
+                          "thumbnail_width": 100
+                        },
+                        "credit": {
+                          "owner_name": "Christopher Wallace",
+                          "license": "All Rights Reserved",
+                          "license_url": "",
+                          "source": "Flickr",
+                          "notice": "This product uses the Flickr API but is not endorsed or certified by SmugMug, Inc.",
+                          "terms_url": "https://www.flickr.com/help/terms/api"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/forecast": {
+      "get": {
+        "summary": "Returns a single forecast",
+        "tags": [
+          "Forecast"
+        ],
+        "description": "Retreives forecast information from OpenWeather API",
+        "parameters": [
+          {
+            "name": "location",
+            "in": "query",
+            "required": true,
+            "description": "city, state",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "id": null,
+                    "type": "forecast",
+                    "attributes": {
+                      "current_weather": {
+                        "datetime": "2022-04-24 23:35:46 -0400",
+                        "sunrise": "2022-04-24 06:55:30 -0400",
+                        "sunset": "2022-04-24 20:27:29 -0400",
+                        "temperature": 72.34,
+                        "feels_like": 72.14,
+                        "humidity": 61,
+                        "uvi": 0,
+                        "visibility": 10000,
+                        "conditions": "few clouds",
+                        "icon": "02n"
+                      },
+                      "daily_weather": [
+                        {
+                          "date": "2022-04-24",
+                          "sunrise": "2022-04-24 06:55:30 -0400",
+                          "sunset": "2022-04-24 20:27:29 -0400",
+                          "max_temp": 79.02,
+                          "min_temp": 64.98,
+                          "conditions": "broken clouds",
+                          "icon": "04d"
+                        },
+                        {
+                          "date": "2022-04-25",
+                          "sunrise": "2022-04-25 06:54:13 -0400",
+                          "sunset": "2022-04-25 20:28:26 -0400",
+                          "max_temp": 72.34,
+                          "min_temp": 52.61,
+                          "conditions": "moderate rain",
+                          "icon": "10d"
+                        },
+                        {
+                          "date": "2022-04-26",
+                          "sunrise": "2022-04-26 06:52:58 -0400",
+                          "sunset": "2022-04-26 20:29:23 -0400",
+                          "max_temp": 58.89,
+                          "min_temp": 43.99,
+                          "conditions": "overcast clouds",
+                          "icon": "04d"
+                        },
+                        {
+                          "date": "2022-04-27",
+                          "sunrise": "2022-04-27 06:51:43 -0400",
+                          "sunset": "2022-04-27 20:30:20 -0400",
+                          "max_temp": 63.88,
+                          "min_temp": 39.06,
+                          "conditions": "clear sky",
+                          "icon": "01d"
+                        },
+                        {
+                          "date": "2022-04-28",
+                          "sunrise": "2022-04-28 06:50:30 -0400",
+                          "sunset": "2022-04-28 20:31:17 -0400",
+                          "max_temp": 67.71,
+                          "min_temp": 45.05,
+                          "conditions": "broken clouds",
+                          "icon": "04d"
+                        }
+                      ],
+                      "hourly_weather": [
+                        {
+                          "time": "23:00:00",
+                          "temperature": 71.65,
+                          "conditions": "scattered clouds",
+                          "icon": "03n"
+                        },
+                        {
+                          "time": "00:00:00",
+                          "temperature": 72.34,
+                          "conditions": "few clouds",
+                          "icon": "02n"
+                        },
+                        {
+                          "time": "01:00:00",
+                          "temperature": 71.2,
+                          "conditions": "scattered clouds",
+                          "icon": "03n"
+                        },
+                        {
+                          "time": "02:00:00",
+                          "temperature": 69.71,
+                          "conditions": "scattered clouds",
+                          "icon": "03n"
+                        },
+                        {
+                          "time": "03:00:00",
+                          "temperature": 67.98,
+                          "conditions": "broken clouds",
+                          "icon": "04n"
+                        },
+                        {
+                          "time": "04:00:00",
+                          "temperature": 65.88,
+                          "conditions": "broken clouds",
+                          "icon": "04n"
+                        },
+                        {
+                          "time": "05:00:00",
+                          "temperature": 63.16,
+                          "conditions": "light rain",
+                          "icon": "10n"
+                        },
+                        {
+                          "time": "06:00:00",
+                          "temperature": 62.15,
+                          "conditions": "light rain",
+                          "icon": "10n"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/road_trip": {
+      "post": {
+        "summary": "Creates a new Roadtrip",
+        "tags": [
+          "Roatrips"
+        ],
+        "description": "Creates a new roadtrip given valid origin, destination and api key",
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "id": null,
+                    "type": "roadtrip",
+                    "attributes": {
+                      "start_city": "Denver, CO",
+                      "end_city": "Durango, CO",
+                      "travel_time": "6 hour(s), 4 min(s)",
+                      "weather_at_eta": {
+                        "temperature": 31.08,
+                        "conditions": "few clouds"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "origin": {
+                    "type": "string"
+                  },
+                  "destination": {
+                    "type": "string"
+                  },
+                  "api_key": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "origin",
+                  "destination",
+                  "api_key"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sessions": {
+      "post": {
+        "summary": "Creates a new Session",
+        "tags": [
+          "Sessions"
+        ],
+        "description": "Creates a new user session given valid email and password",
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "successful",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "id": "1327",
+                    "type": "users",
+                    "attributes": {
+                      "email": "example1@email.com",
+                      "api_key": "CZJ4RPtSPsKU2YxgovzDiofi"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string",
+                    "minimum": 8
+                  }
+                },
+                "required": [
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/users": {
+      "post": {
+        "summary": "Creates a new User",
+        "tags": [
+          "Users"
+        ],
+        "description": "Creates a new user when given email and password with confirmation",
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "new user created",
+            "content": {
+              "application/json": {
+                "example": {
+                  "data": {
+                    "id": "1332",
+                    "type": "users",
+                    "attributes": {
+                      "email": "example@email.com",
+                      "api_key": "qBW5dwKmhYZSZztQTcaUwUwA"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "password": {
+                    "type": "string",
+                    "minimum": 8
+                  },
+                  "password_confirmation": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "email",
+                  "password",
+                  "password_confirmation"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "http://{defaultHost}",
+      "variables": {
+        "defaultHost": {
+          "default": "localhost:3001"
+        }
+      }
+    }
+  ],
+  "components": {
+    "schemas": {
+    }
+  }
+}
