@@ -123,7 +123,12 @@ $ rails s
 ```
 
 - Open web browser and visit link base before testing end points.
-    http://localhost:3000/
+
+http://localhost:3001/
+
+- View Swagger documentation at the Swagger endpoint.
+
+http://localhost:3001/api-docs/index.html
 
 ## External Endpoints
 ### Mapquest Geocode Address
