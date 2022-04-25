@@ -1,18 +1,19 @@
 import React from 'react';
 import './App.css';
-import Header from './Header/Header.js'
-import CurrentWeather from './CurrentWeather/CurrentWeather.js'
-import DetailWeather from './DetailWeather/DetailWeather.js'
-import ForecastWeather from './ForecastWeather/ForecastWeather.js'
+import Header from './components/Header/Header.js.js'
+import CurrentWeather from './components/CurrentWeather/CurrentWeather.js'
+import DetailWeather from './components/DetailWeather/DetailWeather.js'
+import ForecastWeather from './components/ForecastWeather/ForecastWeather.js'
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <Header />
+      {/* <header className="App-header">
         <h1>Sweater Weather</h1>
         <a href="/signup">Sign Up</a>
         <br/>
-        <a href="/login">Login</a>
+        <a href="/login">Login</a> */}
         <div class="locationCurrentWeather">
           <h2>Location Current Weather</h2>
         </div>
@@ -22,7 +23,6 @@ function App() {
         <div class="weatherForecast">
           <h2>Weather Forecast</h2>
         </div>
-      </header>
     </div>
   );
 }
